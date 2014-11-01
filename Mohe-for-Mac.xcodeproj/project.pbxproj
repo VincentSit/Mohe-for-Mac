@@ -34,6 +34,7 @@
 		E14F35FA1A03DB630039210E /* Mohe-for-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mohe-for-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E14F35FF1A03DB630039210E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E14F36001A03DB630039210E /* Mohe_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mohe_for_MacTests.swift; sourceTree = "<group>"; };
+		E14F360A1A04EFD80039210E /* LoadJsonPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = LoadJsonPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +81,7 @@
 				E14F35F11A03DB630039210E /* Images.xcassets */,
 				E14F35F31A03DB630039210E /* Main.storyboard */,
 				E14F35EB1A03DB630039210E /* Supporting Files */,
+				E14F360A1A04EFD80039210E /* LoadJsonPlayground.playground */,
 			);
 			path = "Mohe-for-Mac";
 			sourceTree = "<group>";

@@ -9,7 +9,12 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    
+    @IBAction func getJson(sender: AnyObject){
+        let urlString: String = "http://wowbox.duowan.com/wowplugin/AddonsUpdater.json"
+        var url = NSURL(string: urlString)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +26,10 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
+    
+    func press(){
+        println("press")
+    }
 
 }
 
