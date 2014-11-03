@@ -18,15 +18,19 @@ var crc32: NSDictionary = NSJSONSerialization.JSONObjectWithData(pluginListData!
 var list: NSArray = crc32["Crc32"] as NSArray
 
 for item in list{
+    var folder: NSString = item["folder"] as NSString
     var fileslist: NSArray = item["files"] as NSArray
     for file in fileslist{
-        println(file["file"])
+        var path: NSString = file["file"] as NSString
+        println("\(folder)\\\(path)")
     }
 }
 
 
 // TODO
 // convert Chinese from ASC to UTF-8
+// decompress 7zip
+// crc32
 
 
 
