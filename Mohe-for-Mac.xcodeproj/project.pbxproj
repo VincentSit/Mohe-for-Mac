@@ -399,6 +399,7 @@
 				E14F36061A03DB630039210E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E14F36071A03DB630039210E /* Build configuration list for PBXNativeTarget "Mohe-for-MacTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +408,7 @@
 				E14F36091A03DB630039210E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
