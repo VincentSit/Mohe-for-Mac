@@ -72,13 +72,13 @@ static void MyCPUID(UInt32 function, UInt32 *a, UInt32 *b, UInt32 *c, UInt32 *d)
 
   #else
   
-  __asm__ __volatile__("pushl %%ebx      \n\t" /* save %ebx */
-               "cpuid            \n\t"
-               "movl %%ebx, %1   \n\t" /* save what cpuid just put in %ebx */
-               "popl %%ebx       \n\t" /* restore the old %ebx */
-               : "=a"(*a), "=r"(*b), "=c"(*c), "=d"(*d)
-               : "a"(function)
-               : "cc");
+//  __asm__ __volatile__("pushq %%rbx      \n\t" /* save %ebx */
+//              "cpuid            \n\t"
+//               "movq %%rbx, %1   \n\t" /* save what cpuid just put in %ebx */
+//               "popq %%rbx       \n\t" /* restore the old %ebx */
+//               : "=a"(*a), "=r"(*b), "=c"(*c), "=d"(*d)
+//               : "a"(function)
+//               : "cc");
   
   #endif
   
@@ -128,8 +128,8 @@ Bool CPU_Is_InOrder()
   Cx86cpuid p;
   int firm;
   UInt32 family, model;
-  if (!x86cpuid_CheckAndRead(&p))
-    return True;
+  //if (!x86cpuid_CheckAndRead(&p))
+  //  return True;
   family = x86cpuid_GetFamily(&p);
   model = x86cpuid_GetModel(&p);
   firm = x86cpuid_GetFirm(&p);
@@ -160,8 +160,8 @@ Bool CPU_Is_Aes_Supported()
 {
   Cx86cpuid p;
   CHECK_SYS_SSE_SUPPORT
-  if (!x86cpuid_CheckAndRead(&p))
-    return False;
+  //if (!x86cpuid_CheckAndRead(&p))
+  //  return False;
   return (p.c >> 25) & 1;
 }
 

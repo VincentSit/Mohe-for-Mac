@@ -22,7 +22,7 @@ for item in list{
     var fileslist: NSArray = item["files"] as NSArray
     for file in fileslist{
         var path: NSString = file["file"] as NSString
-        println("\(folder)\\\(path)")
+        println("\(folder)/\(path)")
     }
 }
 
