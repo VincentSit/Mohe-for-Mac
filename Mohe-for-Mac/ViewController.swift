@@ -11,7 +11,7 @@ import Cocoa
 class ViewController: NSViewController {
     
     // test wow plugin path
-    let wowPath = "/User/secbone/Code/plugin/"
+    let wowPath = "/Users/secbone/Code/plugin/"
     
     var pluginDownloadAddr: String = ""
     
@@ -40,7 +40,7 @@ class ViewController: NSViewController {
                 var path: NSString = file["file"] as NSString
                 //println("\(pluginDownloadAddr)\(folder)/\(path)")
                 var filePath = "\(folder)\\\(path)"
-                println("\(filePath)")
+                //println("\(filePath)")
                 write7zfile(filePath)
             }
         }
@@ -71,16 +71,26 @@ class ViewController: NSViewController {
     }
     
     func write7zfile(path: String) -> Bool? {
-        var downloadPath: String = "\(pluginDownloadAddr)\(path).7z"
-        downloadPath = replaceChar(downloadPath, searchString: "\\", replaceString: "/")
+        let downloadString = "\(pluginDownloadAddr)\(path).7z" as NSString
+        var str = downloadString.mutableCopy() as NSMutableString
+        var downloadPath: NSMutableString = str
+        downloadPath = replaceChar(str, searchString: "\\", replaceString: "/")
         var pluginURL: NSURL = NSURL(string: downloadPath)!
         var pluginData: NSData = NSData(contentsOfURL: pluginURL)!
-        var bool = pluginData.writeToFile("\(wowPath)\(path)", atomically: true)
+        var pluginWritePathNS = "\(wowPath)\(path).7z" as NSString
+        var pluginWritePath = pluginWritePathNS.mutableCopy() as NSMutableString
+        pluginWritePath = replaceChar(pluginWritePath, searchString: "\\", replaceString: "/")
+        println(pluginWritePath)
+        var fileManager = NSFileManager()
+        var bool = fileManager.createFileAtPath(pluginWritePath, contents: pluginData, attributes: nil)
+        //var bool = pluginData.writeToFile(pluginWritePath, atomically: true)
+        println(bool)
         return bool
     }
     
-    func replaceChar(string: NSString, searchString: String, replaceString: String) -> String {
+    func replaceChar(string: NSMutableString, searchString: String, replaceString: String) -> NSMutableString {
         var substr: NSRange = string.rangeOfString(searchString)
+        
         while(substr.location != NSNotFound){
             string.replaceCharactersInRange(substr, withString:replaceString);
             substr = string.rangeOfString(searchString)
