@@ -71,20 +71,40 @@ class ViewController: NSViewController {
     }
     
     func write7zfile(path: String) -> Bool? {
+        
+        //get download Path
         let downloadString = "\(pluginDownloadAddr)\(path).7z" as NSString
-        var str = downloadString.mutableCopy() as NSMutableString
-        var downloadPath: NSMutableString = str
-        downloadPath = replaceChar(str, searchString: "\\", replaceString: "/")
+        var downloadPath: NSMutableString = downloadString.mutableCopy() as NSMutableString
+        
+        //replace \ to /
+        downloadPath = replaceChar(downloadPath, searchString: "\\", replaceString: "/")
+        
+        //get file data
         var pluginURL: NSURL = NSURL(string: downloadPath)!
         var pluginData: NSData = NSData(contentsOfURL: pluginURL)!
+        
+        //get write path
         var pluginWritePathNS = "\(wowPath)\(path).7z" as NSString
         var pluginWritePath = pluginWritePathNS.mutableCopy() as NSMutableString
+        
+        //replace \ to /
         pluginWritePath = replaceChar(pluginWritePath, searchString: "\\", replaceString: "/")
-        println(pluginWritePath)
+        //println(pluginWritePath)
+        
+        //get folder path
+        var pathArray: NSArray = pluginWritePath.pathComponents
+        //println(pathArray)
+        var folderPath = NSString.pathWithComponents(pathArray.subarrayWithRange(NSMakeRange(0, pathArray.count-1)))
+        println(folderPath)
+        
+        //create folder and write file
         var fileManager = NSFileManager()
-        var bool = fileManager.createFileAtPath(pluginWritePath, contents: pluginData, attributes: nil)
+        var bool = fileManager.createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil, error: nil)
+        bool = fileManager.createFileAtPath(pluginWritePath, contents: pluginData, attributes: nil)
         //var bool = pluginData.writeToFile(pluginWritePath, atomically: true)
         println(bool)
+        
+        
         return bool
     }
     
