@@ -78,6 +78,7 @@
 		E106FA221A0A2E390004DAB5 /* 7zAlloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zAlloc.c; sourceTree = "<group>"; };
 		E106FA231A0A2E390004DAB5 /* 7zAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zAlloc.h; sourceTree = "<group>"; };
 		E106FA241A0A2E390004DAB5 /* 7zMain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zMain.c; sourceTree = "<group>"; };
+		E106FA381A0DD4700004DAB5 /* 7compiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 7compiler.h; sourceTree = "<group>"; };
 		E14F35E81A03DB630039210E /* Mohe-for-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mohe-for-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E14F35EC1A03DB630039210E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E14F35ED1A03DB630039210E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 		E14F35DF1A03DB630039210E = {
 			isa = PBXGroup;
 			children = (
+				E106FA381A0DD4700004DAB5 /* 7compiler.h */,
 				E106F9FF1A0A2E390004DAB5 /* LZMASDK */,
 				E14F35EA1A03DB630039210E /* Mohe-for-Mac */,
 				E14F35FD1A03DB630039210E /* Mohe-for-MacTests */,
@@ -460,6 +462,7 @@
 				INFOPLIST_FILE = "Mohe-for-Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = 7compiler.h;
 			};
 			name = Debug;
 		};
@@ -471,6 +474,7 @@
 				INFOPLIST_FILE = "Mohe-for-Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = 7compiler.h;
 			};
 			name = Release;
 		};
