@@ -33,6 +33,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E1427F8A1A0F8C5F00E89505 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1427F851A0F8C5F00E89505 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		E1427F8C1A0F8C5F00E89505 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1427F851A0F8C5F00E89505 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = CryptoSwiftTests;
+		};
 		E14F35FB1A03DB630039210E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E14F35E01A03DB630039210E /* Project object */;
@@ -41,6 +55,19 @@
 			remoteInfo = "Mohe-for-Mac";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E12C70A91A0F83C200952F89 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E106FA001A0A2E390004DAB5 /* 7z.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7z.h; sourceTree = "<group>"; };
@@ -79,6 +106,7 @@
 		E106FA231A0A2E390004DAB5 /* 7zAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zAlloc.h; sourceTree = "<group>"; };
 		E106FA241A0A2E390004DAB5 /* 7zMain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zMain.c; sourceTree = "<group>"; };
 		E106FA381A0DD4700004DAB5 /* 7compiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 7compiler.h; sourceTree = "<group>"; };
+		E1427F851A0F8C5F00E89505 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "../../../Downloads/CryptoSwift-master/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		E14F35E81A03DB630039210E /* Mohe-for-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mohe-for-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E14F35EC1A03DB630039210E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E14F35ED1A03DB630039210E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,9 +195,19 @@
 			path = 7z;
 			sourceTree = "<group>";
 		};
+		E1427F861A0F8C5F00E89505 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1427F8B1A0F8C5F00E89505 /* CryptoSwift.framework */,
+				E1427F8D1A0F8C5F00E89505 /* CryptoSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E14F35DF1A03DB630039210E = {
 			isa = PBXGroup;
 			children = (
+				E1427F851A0F8C5F00E89505 /* CryptoSwift.xcodeproj */,
 				E106FA381A0DD4700004DAB5 /* 7compiler.h */,
 				E106F9FF1A0A2E390004DAB5 /* LZMASDK */,
 				E14F35EA1A03DB630039210E /* Mohe-for-Mac */,
@@ -235,6 +273,7 @@
 				E14F35E41A03DB630039210E /* Sources */,
 				E14F35E51A03DB630039210E /* Frameworks */,
 				E14F35E61A03DB630039210E /* Resources */,
+				E12C70A91A0F83C200952F89 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,6 +331,12 @@
 			mainGroup = E14F35DF1A03DB630039210E;
 			productRefGroup = E14F35E91A03DB630039210E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E1427F861A0F8C5F00E89505 /* Products */;
+					ProjectRef = E1427F851A0F8C5F00E89505 /* CryptoSwift.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E14F35E71A03DB630039210E /* Mohe-for-Mac */,
@@ -299,6 +344,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E1427F8B1A0F8C5F00E89505 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = E1427F8A1A0F8C5F00E89505 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E1427F8D1A0F8C5F00E89505 /* CryptoSwiftTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CryptoSwiftTests.xctest;
+			remoteRef = E1427F8C1A0F8C5F00E89505 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E14F35E61A03DB630039210E /* Resources */ = {
@@ -462,6 +524,7 @@
 				INFOPLIST_FILE = "Mohe-for-Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = 7compiler.h;
 			};
 			name = Debug;
@@ -474,6 +537,7 @@
 				INFOPLIST_FILE = "Mohe-for-Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = 7compiler.h;
 			};
 			name = Release;

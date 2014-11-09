@@ -34,6 +34,20 @@
                ReferencedContainer = "container:Mohe-for-Mac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E12C70961A0F83C200952F89"
+               BuildableName = "CryptoSwiftTests.xctest"
+               BlueprintName = "CryptoSwiftTests"
+               ReferencedContainer = "container:Mohe-for-Mac.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "E14F35F91A03DB630039210E"
                BuildableName = "Mohe-for-MacTests.xctest"
                BlueprintName = "Mohe-for-MacTests"
+               ReferencedContainer = "container:Mohe-for-Mac.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E12C70961A0F83C200952F89"
+               BuildableName = "CryptoSwiftTests.xctest"
+               BlueprintName = "CryptoSwiftTests"
                ReferencedContainer = "container:Mohe-for-Mac.xcodeproj">
             </BuildableReference>
          </TestableReference>

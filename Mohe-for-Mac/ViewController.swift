@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import CryptoSwift
 
 class ViewController: NSViewController {
     
@@ -62,11 +63,13 @@ class ViewController: NSViewController {
             var fileslist: NSArray = item["files"] as NSArray
             for file in fileslist{
                 var path: NSString = file["file"] as NSString
-                //println("\(pluginDownloadAddr)\(folder)/\(path)")
+                var crc = file["CrcVal"] as NSInteger
                 var filePath = folder.stringByAppendingPathComponent(path)
                 //println("\(filePath)")
+                if !checkCrcValue(wowPath.stringByAppendingPathComponent(filePath), crcvalue: crc) {
                     self.updatingLabel.stringValue = "Updating \(path)"
-                write7zfile(filePath)
+                    write7zfile(filePath)
+                }
             }
         }
         
@@ -103,6 +106,12 @@ class ViewController: NSViewController {
         }
     }
     
+    func checkCrcValue(path: NSString, crcvalue: NSInteger) -> Bool {
+        var fileData = NSData(contentsOfFile: path)
+        var fileCrc = fileData?.crc32()
+        println("\(fileCrc)======\(crcvalue)")
+        return true
+    }
     
     func write7zfile(path: NSString) -> Bool? {
         

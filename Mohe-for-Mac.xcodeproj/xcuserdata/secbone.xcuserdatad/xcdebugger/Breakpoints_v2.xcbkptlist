@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "176"
             endingLineNumber = "176"
-            landmarkName = "replaceChar(_:searchString:replaceString:)"
+            landmarkName = "getFileName(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
             endingLineNumber = "158"
-            landmarkName = "decompile7z(_:toPath:)"
+            landmarkName = "writeFileWithPath(_:fileData:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

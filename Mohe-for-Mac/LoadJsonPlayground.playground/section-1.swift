@@ -32,8 +32,8 @@ var xml = "http://wowbox.duowan.com/wowplugin/AddOns/Accountant_Classic/Accounta
 var xmlurl = NSURL(string: xml)
 var xmldata: NSData = NSData(contentsOfURL: xmlurl!)!
 
-var writePath = @"/Users/secbone/xml.7z"
-var bool = xmldata.writeToFile("/Users/secbone/xml.7z", atomically: true)
+//var writePath = @"/Users/secbone/xml.7z"
+//var bool = xmldata.writeToFile("/Users/secbone/xml.7z", atomically: true)
 
 
 
