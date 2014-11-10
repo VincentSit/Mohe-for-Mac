@@ -12,11 +12,14 @@ import CryptoSwift
 class ViewController: NSViewController {
     
     // test wow plugin path
-    var wowPath = "/Applications/World of Warcraft/Interface/AddOns/"
-    var AddOnsPath = "Interface/AddOns"
+    var AddOnsPath: NSString = "Interface/AddOns"
+    var wowRootPath = "/Applications/World of Warcraft/"
+    var wowPath = "/Applications/World of Warcraft/Interface/AddOns"
+    var CrcJsonPath = "MoheForMac/Crc32.json"
     let tempPath = NSTemporaryDirectory()
-    
     var pluginDownloadAddr: String = ""
+    var isUpdate = false
+    
     
 
     
@@ -28,13 +31,16 @@ class ViewController: NSViewController {
         panel.showsResizeIndicator = true
         panel.canChooseFiles = false
         panel.canChooseDirectories = true
-        //panel.allowsMultipleSelection = false
+        panel.allowsMultipleSelection = false
         panel.beginWithCompletionHandler({(result) -> Void in
             if result == NSOKButton {
                 var selection: NSURL = panel.URLs[0] as NSURL
                 var path = selection.path!
-                self.wowPathTextField.stringValue = path
+                
+                NSUserDefaults.setValue(path, forKey: "wowPath")
+                self.wowRootPath = path
                 self.wowPath = path.stringByAppendingPathComponent(self.AddOnsPath)
+                self.wowPathTextField.stringValue = path
             }
         })
         
@@ -43,59 +49,23 @@ class ViewController: NSViewController {
     @IBAction func getJson(sender: AnyObject){
         let urlString = "http://wowbox.duowan.com/wowplugin/AddonsUpdater.json"
         var url: NSURL = NSURL(string: urlString)!
-        
         var data = NSData(contentsOfURL: url)
         
         var json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil)
-        
         pluginDownloadAddr = json?.objectForKey("plughttpaddr") as String
+        var pluginListAddr: String = json?.objectForKey("plugjsonaddr") as NSString
+        var pluginCrc: NSInteger = json?.objectForKey("plugcrc") as NSInteger
         
-        var pluginListAddr: String = json?.objectForKey("plugjsonaddr") as String
-        
-        var pluginListData = NSData(contentsOfURL: NSURL(string: pluginListAddr)!)
-        
-        var crc32: NSDictionary = NSJSONSerialization.JSONObjectWithData(pluginListData!, options: NSJSONReadingOptions.AllowFragments, error: nil) as NSDictionary
-        
-        var list: NSArray = crc32["Crc32"] as NSArray
-        
-        for item in list{
-            var folder: NSString = item["folder"] as NSString
-            var fileslist: NSArray = item["files"] as NSArray
-            for file in fileslist{
-                var path: NSString = file["file"] as NSString
-                var crc = file["CrcVal"] as NSInteger
-                var filePath = folder.stringByAppendingPathComponent(path)
-                //println("\(filePath)")
-                if !checkCrcValue(wowPath.stringByAppendingPathComponent(filePath), crcvalue: crc) {
-                    self.updatingLabel.stringValue = "Updating \(path)"
-                    write7zfile(filePath)
-                }
-            }
+        if !checkCrcValue(pluginCrc) {
+            updataPlugin(pluginListAddr)
         }
-        
-        self.updatingLabel.stringValue = "Update Done! Enjoy It!"
-        
-        
-        // Test download 7z file
-        /*var xml = "http://wowbox.duowan.com/wowplugin/AddOns/Accountant_Classic/Accountant.xml.7z"
-        var xmlurl = NSURL(string: xml)
-        var xmldata: NSData = NSData(contentsOfURL: xmlurl!)!
-        
-        //var writePath = @"/Users/secbone/xml.7z"
-        var bool = xmldata.writeToFile("/Users/secbone/xml.7z", atomically: true)*/
-        
-        //Test decompile 7z file
-        
-        //var srcPath = "/Users/secbone/xml.7z" as NSString
-        //var toPath = "/Users/secbone/Public" as NSString
-        //var array = decompile7z(srcPath, toPath: toPath)
-        //println(array)
-        
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadDefaultsPath()
 
         // Do any additional setup after loading the view.
     }
@@ -106,23 +76,58 @@ class ViewController: NSViewController {
         }
     }
     
-    func checkCrcValue(path: NSString, crcvalue: NSInteger) -> Bool {
-        var fileData = NSData(contentsOfFile: path)
-        var fileCrc = fileData?.crc32()
-        println("\(fileCrc)======\(crcvalue)")
-        return true
+    func updataPlugin(jsonPath: NSString) -> Void {
+        var pluginListData = NSData(contentsOfURL: NSURL(string: jsonPath)!)
+        var crc32: NSDictionary = NSJSONSerialization.JSONObjectWithData(pluginListData!, options: NSJSONReadingOptions.AllowFragments, error: nil) as NSDictionary
+        
+        var list: NSArray = crc32["Crc32"] as NSArray
+        for item in list{
+            var folder: NSString = item["folder"] as NSString
+            var fileslist: NSArray = item["files"] as NSArray
+            for file in fileslist{
+                var path: NSString = file["file"] as NSString
+                var crc = file["CrcVal"]
+                var filePath = folder.stringByAppendingPathComponent(path)
+                self.updatingLabel.stringValue = "Updating \(path)"
+                write7zfile(filePath)
+            }
+        }
+        
+        self.updatingLabel.stringValue = "Update Done! Enjoy It!"
+    }
+    
+    func loadDefaultsPath() -> Void {
+        var path: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("wowPath")
+        if path == nil {
+            path = "/Applications/World of Warcraft/"
+        }
+        wowRootPath =  path as NSString
+        wowPath = wowRootPath.stringByAppendingPathComponent(AddOnsPath)
+        self.wowPathTextField.stringValue = wowRootPath
+    }
+    
+    func checkCrcValue(CrcValue: NSInteger) -> Bool {
+        var crcString: String = String(CrcValue)
+        var localCrc = NSUserDefaults.standardUserDefaults().objectForKey("crcVal")
+        if localCrc == nil {
+            localCrc = ""
+        }
+    
+        var localCrcString = localCrc as NSString
+        if crcString == localCrcString {
+            self.updatingLabel.stringValue = "No Update! Have a Good Time!"
+            return true
+        }
+        NSUserDefaults.standardUserDefaults().setValue(crcString, forKey: "crcVal")
+        self.updatingLabel.stringValue = "Updating... Please Wait..."
+        return false
     }
     
     func write7zfile(path: NSString) -> Bool? {
         
         var folderPath = replaceChar(path.mutableCopy() as NSMutableString, searchString: "\\", replaceString: "/")
         
-        //get download Path
         let downloadString = "\(pluginDownloadAddr.stringByAppendingPathComponent(folderPath)).7z" as NSString
-        //var downloadPath: NSMutableString = downloadString.mutableCopy() as NSMutableString
-        
-        //replace \ to /
-        //downloadPath = replaceChar(downloadPath, searchString: "\\", replaceString: "/")
         
         //get file data
         var pluginURL: NSURL = NSURL(string: downloadString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!

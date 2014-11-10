@@ -25,12 +25,12 @@
 		E106FA341A0A2E390004DAB5 /* Ppmd8Dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E106FA1D1A0A2E390004DAB5 /* Ppmd8Dec.c */; };
 		E106FA351A0A2E390004DAB5 /* 7zAlloc.c in Sources */ = {isa = PBXBuildFile; fileRef = E106FA221A0A2E390004DAB5 /* 7zAlloc.c */; };
 		E106FA361A0A2E390004DAB5 /* 7zMain.c in Sources */ = {isa = PBXBuildFile; fileRef = E106FA241A0A2E390004DAB5 /* 7zMain.c */; };
+		E14822371A11106100C0CDA6 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14822361A11106100C0CDA6 /* CryptoSwift.framework */; };
 		E14F35EE1A03DB630039210E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F35ED1A03DB630039210E /* AppDelegate.swift */; };
 		E14F35F01A03DB630039210E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F35EF1A03DB630039210E /* ViewController.swift */; };
 		E14F35F21A03DB630039210E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E14F35F11A03DB630039210E /* Images.xcassets */; };
 		E14F35F51A03DB630039210E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E14F35F31A03DB630039210E /* Main.storyboard */; };
 		E14F36011A03DB630039210E /* Mohe_for_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F36001A03DB630039210E /* Mohe_for_MacTests.swift */; };
-		E1CEAF9B1A0F9F9D0097FF6C /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CEAF9A1A0F9F9D0097FF6C /* CryptoSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +93,7 @@
 		E106FA231A0A2E390004DAB5 /* 7zAlloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7zAlloc.h; sourceTree = "<group>"; };
 		E106FA241A0A2E390004DAB5 /* 7zMain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 7zMain.c; sourceTree = "<group>"; };
 		E106FA381A0DD4700004DAB5 /* 7compiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 7compiler.h; sourceTree = "<group>"; };
+		E14822361A11106100C0CDA6 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
 		E14F35E81A03DB630039210E /* Mohe-for-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mohe-for-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E14F35EC1A03DB630039210E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E14F35ED1A03DB630039210E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		E14F35FF1A03DB630039210E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E14F36001A03DB630039210E /* Mohe_for_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mohe_for_MacTests.swift; sourceTree = "<group>"; };
 		E14F360A1A04EFD80039210E /* LoadJsonPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = LoadJsonPlayground.playground; sourceTree = "<group>"; };
-		E1CEAF9A1A0F9F9D0097FF6C /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = "../../../Library/Developer/Xcode/DerivedData/CryptoSwift-ewowpnqxxabxaxdxurkqgpbpuitd/Build/Products/Debug/CryptoSwift.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1CEAF9B1A0F9F9D0097FF6C /* CryptoSwift.framework in Frameworks */,
+				E14822371A11106100C0CDA6 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +186,7 @@
 		E14F35DF1A03DB630039210E = {
 			isa = PBXGroup;
 			children = (
-				E1CEAF9A1A0F9F9D0097FF6C /* CryptoSwift.framework */,
+				E14822361A11106100C0CDA6 /* CryptoSwift.framework */,
 				E106FA381A0DD4700004DAB5 /* 7compiler.h */,
 				E106F9FF1A0A2E390004DAB5 /* LZMASDK */,
 				E14F35EA1A03DB630039210E /* Mohe-for-Mac */,
@@ -480,6 +480,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CryptoSwift-ewowpnqxxabxaxdxurkqgpbpuitd/Build/Products/Debug",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Mohe-for-Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -497,6 +498,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/CryptoSwift-ewowpnqxxabxaxdxurkqgpbpuitd/Build/Products/Debug",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Mohe-for-Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
