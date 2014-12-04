@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CryptoSwift
+//import CryptoSwift
 
 class ViewController: NSViewController {
     
