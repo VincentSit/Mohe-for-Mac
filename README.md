@@ -4,6 +4,8 @@ Mohe for Mac
 
 可以获取并下载最新的魔盒的标配插件
 
+度盘地址: http://pan.baidu.com/s/1mggJE7Q
+
 #TODO
 
 - UI基本等于没做
