@@ -109,6 +109,7 @@ int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryNam
     [fullPathContents addObject:myTmpDirPath];
   }
 
+    /*
     int fib = 0, fir = 0, sec = 1;
     for (int i = 0;i < 100;i ++) {
         fib = fir + sec;
@@ -116,6 +117,7 @@ int do7z_extract_entry(char *archivePath, char *archiveCachePath, char *entryNam
         sec = fib;
     }
     printf("fib 100 is %d\n", fib);
+     */
   
   return [NSArray arrayWithArray:fullPathContents];
 }
